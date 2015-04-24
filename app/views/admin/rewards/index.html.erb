@@ -1,5 +1,11 @@
+<h1> Rewards: </h1>
+
+<ul>
 <% @rewards.each do |reward| %>
-  <%= reward.name %>
-  <%= reward.description %>  
-  <%= reward.cost %>  
+  <li>name: <%= reward.name %><br>
+  description: <%= reward.description %> <br> 
+  cost: <%= reward.cost %> points <br>
+  <%= link_to "edit", edit_admin_reward_path(reward) %>
+  <%= link_to "delete", admin_reward_path(reward), method: "delete" %></li>
 <% end %>
+</ul>
