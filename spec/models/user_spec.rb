@@ -28,5 +28,12 @@ RSpec.describe User, type: :model do
       user.password = nil
       expect(user).not_to be_valid
     end
+    
+    it "can't have an already taken username" do
+      user = User.create(first_name: "Jane", last_name: "Doe", username: "wwjd", password: "password" )
+      user2 = User.create(first_name: "Jane", last_name: "Doe", username: "wwjd", password: "password" )
+      
+      expect(user2).not_to be_valid
+    end
   end
 end
