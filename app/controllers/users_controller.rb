@@ -19,6 +19,16 @@ class UsersController < ApplicationController
   def show
   end
   
+  def update
+    @user = User.find_by(username: params[:user][:username])
+    if @user.update(user_params)
+      redirect_to admin_users_path
+    else
+      render :edit
+    end
+  end
+  
+  
   private
   
   def user_params
@@ -26,7 +36,8 @@ class UsersController < ApplicationController
                                  :last_name, 
                                  :username, 
                                  :password, 
-                                 :password_confirmation)
+                                 :password_confirmation, 
+                                 :points)
   end
   
 end
