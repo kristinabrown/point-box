@@ -1,12 +1,13 @@
 <h1> <%= @reward.name %></h1>
+<%= image_tag @reward.image.url(:medium) %></p><br>
 
 <%= form_for(current_user, url: user_path ) do |f| %> 
   <%= f.hidden_field :reward_id, :value => @reward.id %>
   <%= f.submit "Click to purchase" %>
 <% end %>
 
-<h2><%= @reward.description %></h2>
-<h1><%= @reward.cost %></h1>
+<h3><%= @reward.description %></h3>
+<h1>Just <%= @reward.cost %> points!</h1>
 
   
   

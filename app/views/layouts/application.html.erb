@@ -9,20 +9,33 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="container">
-  
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, :id => "flash_#{name}" %>
-  <% end %>
     
-  
   <nav class="navbar navbar-default">
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><%= link_to "logout", logout_path, method: "delete" %></li>
-      </ul>
-    </div>
-  </nav>
+    <ul class="nav navbar-nav">
+      <% if current_user == nil %> 
+        <li><%= link_to "Login", login_path %></li>
+        <li><%= link_to "New User", new_user_path %></li>
+      <% elsif current_admin? %>
+        <li><%= link_to "New Reward", new_admin_reward_path %></li>
+        <li><%= link_to "Rewards Index", admin_rewards_path  %></li>
+        <li><%= link_to "Users Index", admin_users_path  %></li>
+        <li><%= link_to "Logout", logout_path, method: "delete" %></li>
+      <% else %>
+        <li><%= link_to "Browse Rewards", user_rewards_path %></li> 
+        <li><%= link_to "Dashboard", user_path %></li>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Logout", logout_path, method: "delete" %></li>
+        </ul>
+      <% end %>  
+    </ul>
+  </div>
+</nav>
 
+<% flash.each do |name, msg| %>
+  <%= content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>
+  
 <%= yield %>
 
 </body>

@@ -5,6 +5,7 @@
   <h2>Your Rewards: </h2>
   <ul>
     <% current_user.rewards.each do |reward| %>
-      <li><%= reward.name %></li>
+    <li><h3><%= reward.name %></h3>
+      <p><%= image_tag reward.image.url(:thumb) %></p></li>
     <% end %>
   </ul>

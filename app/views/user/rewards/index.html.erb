@@ -1,7 +1,13 @@
 <h1>Rewards: </h1>
 
+<ul>
 <% @rewards.each do |reward| %>
-  <%= link_to reward.name, user_reward_path(reward) %>
-  <%= reward.description %>
-  <%= reward.cost %>
+  <li><h2><%= link_to reward.name, user_reward_path(reward) %></h2><br>
+    <% if reward.image.exists? %>
+      <p><%= image_tag reward.image.url(:thumb) %></p>
+    <% end %>
+  description: <%= reward.description %> <br> 
+  cost: <%= reward.cost %> points <br>
+</li>
 <% end %>
+</ul>
