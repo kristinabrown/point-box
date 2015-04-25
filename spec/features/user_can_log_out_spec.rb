@@ -13,11 +13,11 @@ RSpec.describe "user logout" do
       fill_in "session[username]", with: "kbrown"
       fill_in "session[password]", with: "password"
       
-      click_link_or_button "login"
+      click_link_or_button "Go"
       
-      expect(page).to have_content("Welcome, kristina")
-
-      click_link_or_button "logout"
+      expect(page).to have_content("Welcome, Kristina")
+      
+      click_link_or_button "Logout"
       
       expect(page).to have_content("You successfully logged out.")
     end

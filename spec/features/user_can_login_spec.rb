@@ -12,9 +12,9 @@ RSpec.describe "user login" do
       fill_in "session[username]", with: "kbrown"
       fill_in "session[password]", with: "password"
       
-      click_link_or_button "login"
+      click_link_or_button "Go"
       
-      expect(page).to have_content("Welcome, kristina")
+      expect(page).to have_content("Welcome, Kristina")
     end
   end
   
@@ -28,7 +28,7 @@ RSpec.describe "user login" do
       
       fill_in "session[username]", with: "kbrown"
       fill_in "session[password]", with: "pasword"
-      click_link_or_button "login"
+      click_link_or_button "Go"
       
       expect(page).to have_content("Unable to login.")
     end

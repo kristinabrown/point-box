@@ -1,11 +1,18 @@
-<h1>Welcome, <%= current_user.first_name %></h1>
-
-<p>You have <%= current_user.points %> points!<p>
+<div class="jumbotron" id="user-header">
+<h1 class="text-center">Welcome, <%= current_user.first_name.capitalize %> <small>You have <%= current_user.points %> points!<small></h1>
+</div>
   
-  <h2>Your Rewards: </h2>
+<h1 class="header-font"><strong>Your Rewards</strong></h1>
+
   <ul>
     <% current_user.rewards.each do |reward| %>
-    <li><h3><%= reward.name %></h3>
-      <p><%= image_tag reward.image.url(:thumb) %></p></li>
+    <div class="row">
+      <div class="col-md-10 col-sm-offset-3">
+        <div class="reward-div text-center">
+          <h3><%= reward.name %></h3>
+          <p><%= image_tag reward.image.url(:medium) %></p>
+        </div>
+      </div>
+    </div>
     <% end %>
   </ul>

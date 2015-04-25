@@ -5,7 +5,7 @@ RSpec.describe "user can view rewards" do
     let(:user) { User.create(first_name: "Kristina", 
                            last_name: "Brown",
                            username: "kbrown", 
-                           role: 1, 
+                           role: 0, 
                            password: "password",
                            points: 20) } 
     it "is able to purchase a reward" do                       
@@ -23,7 +23,7 @@ RSpec.describe "user can view rewards" do
        click_button "Click to purchase"
 
        expect(page).to have_content("You purchased a thing!")
-       expect(page).to have_content("Your Rewards: ")
+       expect(page).to have_content("Your Rewards")
        expect(page).to have_content("6")
        
      end

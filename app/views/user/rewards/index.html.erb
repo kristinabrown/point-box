@@ -1,13 +1,17 @@
-<h1>Rewards: </h1>
+<h1 class="header-font">Rewards</h1>
 
-<ul>
+
 <% @rewards.each do |reward| %>
-  <li><h2><%= link_to reward.name, user_reward_path(reward) %></h2><br>
-    <% if reward.image.exists? %>
-      <p><%= image_tag reward.image.url(:thumb) %></p>
-    <% end %>
-  description: <%= reward.description %> <br> 
-  cost: <%= reward.cost %> points <br>
-</li>
+<div class="row">
+     <div class="col-md-10 col-sm-offset-3">
+       <div class="reward-div text-center">
+       <h2 type="button" class="btn btn-default btn-lg" id="reward-button"><%= link_to reward.name, user_reward_path(reward) %></h2><br>
+      <% if reward.image.exists? %>
+        <p><%= image_tag reward.image.url(:thumb) %></p>
+      <% end %>
+    <h3 class="reward-text"><%= reward.description %> <br> 
+    <%= reward.cost %> points <br></h3>
+  </div>
+  </div>
+</div>
 <% end %>
-</ul>
