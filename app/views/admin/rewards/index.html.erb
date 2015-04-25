@@ -2,7 +2,10 @@
 
 <ul>
 <% @rewards.each do |reward| %>
-  <li>name: <%= reward.name %><br>
+  <li><h2><%= reward.name %></h2><br>
+    <% if reward.image.exists? %>
+      <p><%= image_tag reward.image.url(:thumb) %></p>
+    <% end %>
   description: <%= reward.description %> <br> 
   cost: <%= reward.cost %> points <br>
   <%= link_to "edit", edit_admin_reward_path(reward) %>

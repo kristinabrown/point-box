@@ -27,7 +27,7 @@ class UsersController < ApplicationController
       flash[:notice] = "You purchased a #{reward.name}!"
       redirect_to user_path
     else
-      flash[:error] = "You don't have enough points for that!"
+      flash[:errors] = "You don't have enough points for that!"
       redirect_to user_path
     end
   end
