@@ -1,10 +1,41 @@
+<body id="landing-page">
+
+<h1 class="header-font" id="sign-up">Sign Up!</h1>
+<div class="row" id="sign-up-row">
 <%= form_for(@user, url: user_path) do |f|  %>
-  <%= f.text_field :first_name, placeholder: "First Name" %>
-  <%= f.text_field :last_name, placeholder: "Last Name" %>
-  <%= f.text_field :username, placeholder: "Username" %>
-  <%= f.password_field :password, placeholder: "password" %>
-  <%= f.password_field :password_confirmation, placeholder: "password confirmation" %>
-  <%= f.submit "Submit" %>
+<div class="row" id="sign-up-row">
+  <div class='col-md-9 col-md-offset-4'>
+  <h2><%= f.text_field :first_name, placeholder: "First Name" %></h2>
+  </div>
+</div>
+    <div class="row" id="sign-up-row">
+      <div class='col-md-9 col-md-offset-4'>
+  <h2><%= f.text_field :last_name, placeholder: "Last Name" %></h2>
+</div>
+</div>
+<div class="row" id="sign-up-row">
+  <div class='col-md-9 col-md-offset-4'>
+  <h2><%= f.text_field :username, placeholder: "Username" %></h2>
+</div>
+</div>
+<div class="row" id="sign-up-row">
+  <div class='col-md-9 col-md-offset-4'>
+  <h2><%= f.password_field :password, placeholder: "Password" %></h2>
+  </div>
+</div>
+    <div class="row" id="sign-up-row">
+      <div class='col-md-9 col-md-offset-4'>
+  <h2><%= f.password_field :password_confirmation, placeholder: "Confirm Password" %></h2>
+</div>
+</div>
+<div class="row" id="sign-up-row">
+  <div class='col-md-9 col-md-offset-4'>
+  <h2><%= f.submit "Submit" %></h2>
+</div>
+</div>
 <% end  %>
+</div>
+
+</body>
   
   
