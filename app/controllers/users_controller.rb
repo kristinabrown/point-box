@@ -20,11 +20,15 @@ class UsersController < ApplicationController
   end
   
   def update
-    @user = User.find_by(username: params[:user][:username])
-    if @user.update(user_params)
-      redirect_to admin_users_path
+    reward = Reward.find(params[:user][:reward_id])
+    if current_user.points >= reward.cost
+      current_user.points -= reward.cost
+      current_user.rewards << reward
+      flash[:notice] = "You purchased a #{reward.name}!"
+      redirect_to user_path
     else
-      render :edit
+      flash[:error] = "You don't have enough points for that!"
+      redirect_to user_path
     end
   end
   
