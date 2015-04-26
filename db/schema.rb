@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20150426175127) do
     t.integer  "points",          default: 10
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
-    t.integer  "redeemed"
+    t.integer  "redeemed",        default: 0
   end
 
   add_foreign_key "user_rewards", "rewards"
