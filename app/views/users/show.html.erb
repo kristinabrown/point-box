@@ -2,7 +2,7 @@
 <h1 class="text-center">Welcome, <%= current_user.first_name.capitalize %> <small>You have <%= current_user.points %> points!<small></h1>
 </div>
   
-<h1 class="header-font"><strong>Your Rewards</strong></h1>
+<h1 class="header-font"><strong>Your Rewards</strong><p>total points used: <%= current_user.redeemed %></p></h1>
 
   <ul>
     <% current_user.rewards.each do |reward| %>

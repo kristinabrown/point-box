@@ -22,7 +22,8 @@ class UsersController < ApplicationController
   def update
     reward = Reward.find(params[:user][:reward_id])
     if current_user.points >= reward.cost
-      current_user.update(points: (current_user.points - reward.cost))
+      current_user.update(points: (current_user.points - reward.cost), 
+                          redeemed: (current_user.redeemed + reward.cost))
       current_user.rewards << reward
       flash[:notice] = "You purchased a #{reward.name}!"
       redirect_to user_path
